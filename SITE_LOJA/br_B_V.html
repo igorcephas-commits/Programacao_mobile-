@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>BR FUTSAL BILLY BRANCA/VERDE</title>
+    <style>
+        body { background-color: #000000; font-family: sans-serif; color: #DCDCDC; }
+       img { border-radius: 10px; width: 400px; height: auto; margin: 5px; }
+       
+        .btn-compra {
+            background-color: #28a745; 
+            color: white;
+            padding: 15px 40px;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .btn-compra:hover {
+            background-color: #218838;
+            box-shadow: 0px 0px 15px #28a745;
+        }
+    </style>
+</head>
+<body>
+<center>
+     <font color="#DCDCDC">
+<h2>A Umbro Pro 5 Bump Billy (Branco) combina couro natural e tecnologia BUMP para amortecimento máximo e toque preciso. <BR>
+Esta edição exclusiva apresenta design clean com solado translúcido, garantindo alta durabilidade e estilo único nas quadras.<BR>
+Oferece performance profissional, estabilidade e conforto superior para jogadores que buscam o melhor do futsal.
+
+</h2></font>
+
+
+<table>
+    <tr>
+<td><img src="PRODUTOS/br_B_V.png"> </td>
+<td><img src="PRODUTOS/fora_br_B_V.png"> </td>
+</tr>
+<tr>
+    <td><img src="PRODUTOS/dentro_br_B_V.png"> </td>
+    <td><img src="PRODUTOS/sola_br_B_V.png"> </td>
+ 
+    </tr>
+    </table>
+      
+                <h1><font color="#FF0000">R$299,99</font> </h1>
+
+     <button onclick="adicionarAoCarrinho('Umbro BR FUTSAL BRANCA/VERDE', 299.99, 'PRODUTOS/br_B_V.png')" class="btn-compra">
+        🛒 ADICIONAR AO CARRINHO
+    </button>
+</center>
+
+<script>
+    function adicionarAoCarrinho(nome, preco, imagem) {
+        // 1. Busca a lista de produtos já salvos ou cria uma lista vazia se for o primeiro
+        let carrinho = JSON.parse(localStorage.getItem('meuCarrinho')) || [];
+        
+        // 2. Adiciona as informações do tênis atual na lista
+        carrinho.push({
+            nome: nome,
+            preco: preco,
+            imagem: imagem
+        });
+        
+        // 3. Salva a lista atualizada no "cérebro" do navegador (localStorage)
+        localStorage.setItem('meuCarrinho', JSON.stringify(carrinho));
+        
+        // 4. Redireciona o usuário para a página do carrinho
+        window.location.href = 'carrinho.html';
+    }
+</script>
+
+</body>
+</html>

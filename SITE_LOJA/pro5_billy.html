@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>PRO 5 BUMP BILLY</title>
+    <style>
+        body { background-color: #000000; font-family: sans-serif; color: #DCDCDC; }
+       img { border-radius: 10px; width: 400px; height: auto; margin: 5px; }
+       
+        .btn-compra {
+            background-color: #28a745; 
+            color: white;
+            padding: 15px 40px;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .btn-compra:hover {
+            background-color: #218838;
+            box-shadow: 0px 0px 15px #28a745;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <font color="#DCDCDC">
+ <h2>A Umbro Pro 5 Bump BILLY oferece amortecimento de elite com a exclusiva tecnologia BUMP. <BR>
+Combina couro natural para um toque preciso com mesh respirável, garantindo conforto e ventilação total.<br>
+Sua biqueira reforçada e solado antiderrapante entregam a durabilidade e estabilidade necessárias para o alto rendimento.
+</h2></font>
+
+
+
+
+<table>
+    <tr>
+<td><img src="PRODUTOS/billy.png"> </td>
+<td><img src="PRODUTOS/fora_billy.png"> </td>
+</tr>
+<tr>
+    <td><img src="PRODUTOS/dentro_billy.png"> </td>
+    <td><img src="PRODUTOS/sola_billy.png"> </td>
+ 
+    </tr>
+    </table>
+
+<h1><font color="#FF0000">R$599,99</font> </h1> 
+
+  <button onclick="adicionarAoCarrinho('Umbro PRO 5 BUMP BILLY', 599.99, 'PRODUTOS/billy.png')" class="btn-compra">
+        🛒 ADICIONAR AO CARRINHO
+    </button>
+</center>
+
+<script>
+    function adicionarAoCarrinho(nome, preco, imagem) {
+        // 1. Busca a lista de produtos já salvos ou cria uma lista vazia se for o primeiro
+        let carrinho = JSON.parse(localStorage.getItem('meuCarrinho')) || [];
+        
+        // 2. Adiciona as informações do tênis atual na lista
+        carrinho.push({
+            nome: nome,
+            preco: preco,
+            imagem: imagem
+        });
+        
+        // 3. Salva a lista atualizada no "cérebro" do navegador (localStorage)
+        localStorage.setItem('meuCarrinho', JSON.stringify(carrinho));
+        
+        // 4. Redireciona o usuário para a página do carrinho
+        window.location.href = 'carrinho.html';
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Carrinho - Soma Automática</title>
+    <style>
+        body { background-color: #000000; font-family: sans-serif; color: #DCDCDC; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #1a1a1a; padding: 30px; border-radius: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th { border-bottom: 2px solid #444; padding: 10px; text-align: left; }
+        td { padding: 15px; border-bottom: 1px solid #333; }
+        .img-carrinho { width: 50px; border-radius: 5px; margin-right: 10px; }
+        .total-area { text-align: right; margin-top: 20px; font-size: 1.5em; }
+        .btn-finalizar { background: #28a745; color: white; padding: 15px; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        .btn-limpar { background: #ff0000; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🛒 Seu Carrinho</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody id="itens-carrinho">
+            <!-- Os produtos aparecerão aqui via JavaScript -->
+        </tbody>
+    </table>
+
+    <div class="total-area">
+        <p>Total: <span id="valor-total" style="color: #FF0000;">R$ 0,00</span></p>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+        <a href="index.html" style="color: #ccc; text-decoration: none;">← Comprar mais</a>
+        <a href="#" onclick="finalizar()" class="btn-finalizar">Finalizar Compra</a>
+    </div>
+</div>
+
+<script>
+function carregarCarrinho() {
+    let carrinho = JSON.parse(localStorage.getItem('meuCarrinho')) || [];
+    let tabela = document.getElementById('itens-carrinho');
+    let totalElemento = document.getElementById('valor-total');
+    let total = 0;
+
+    tabela.innerHTML = ""; // Limpa a tabela
+
+    carrinho.forEach((item, index) => {
+        total += item.preco;
+        tabela.innerHTML += `
+            <tr>
+                <td><img src="${item.imagem}" class="img-carrinho">${item.nome}</td>
+                <td>R$ ${item.preco.toFixed(2)}</td>
+                <td><button class="btn-limpar" onclick="removerItem(${index})">Remover</button></td>
+            </tr>
+        `;
+    });
+
+    totalElemento.innerHTML = `R$ ${total.toFixed(2)}`;
+}
+
+function removerItem(index) {
+    let carrinho = JSON.parse(localStorage.getItem('meuCarrinho'));
+    carrinho.splice(index, 1); // Remove o item da lista
+    localStorage.setItem('meuCarrinho', JSON.stringify(carrinho));
+    carregarCarrinho(); // Atualiza a página
+}
+
+function finalizar() {
+    let total = document.getElementById('valor-total').innerText;
+    alert("Pedido finalizado no valor de " + total + "! Integrar com pagamento agora.");
+}
+
+// Carrega os itens assim que a página abrir
+carregarCarrinho();
+</script>
+
+</body>
+</html>
+
