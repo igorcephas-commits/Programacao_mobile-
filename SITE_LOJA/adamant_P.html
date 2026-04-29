@@ -57,20 +57,17 @@
 
 <script>
     function adicionarAoCarrinho(nome, preco, imagem) {
-        // 1. Busca a lista de produtos já salvos ou cria uma lista vazia se for o primeiro
+        
         let carrinho = JSON.parse(localStorage.getItem('meuCarrinho')) || [];
         
-        // 2. Adiciona as informações do tênis atual na lista
         carrinho.push({
             nome: nome,
             preco: preco,
             imagem: imagem
         });
         
-        // 3. Salva a lista atualizada no "cérebro" do navegador (localStorage)
         localStorage.setItem('meuCarrinho', JSON.stringify(carrinho));
         
-        // 4. Redireciona o usuário para a página do carrinho
         window.location.href = 'carrinho.html';
     }
 </script>

@@ -28,7 +28,6 @@
             </tr>
         </thead>
         <tbody id="itens-carrinho">
-            <!-- Os produtos aparecerão aqui via JavaScript -->
         </tbody>
     </table>
 
@@ -49,7 +48,7 @@ function carregarCarrinho() {
     let totalElemento = document.getElementById('valor-total');
     let total = 0;
 
-    tabela.innerHTML = ""; // Limpa a tabela
+    tabela.innerHTML = ""; 
 
     carrinho.forEach((item, index) => {
         total += item.preco;
@@ -67,9 +66,9 @@ function carregarCarrinho() {
 
 function removerItem(index) {
     let carrinho = JSON.parse(localStorage.getItem('meuCarrinho'));
-    carrinho.splice(index, 1); // Remove o item da lista
+    carrinho.splice(index, 1);
     localStorage.setItem('meuCarrinho', JSON.stringify(carrinho));
-    carregarCarrinho(); // Atualiza a página
+    carregarCarrinho();
 }
 
 function finalizar() {
@@ -77,7 +76,6 @@ function finalizar() {
     alert("Pedido finalizado no valor de " + total + "! Integrar com pagamento agora.");
 }
 
-// Carrega os itens assim que a página abrir
 carregarCarrinho();
 </script>
 
