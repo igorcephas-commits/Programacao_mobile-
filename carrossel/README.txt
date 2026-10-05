@@ -1,101 +1,74 @@
-PHP - APP CARROSSEL - MÓDULO ALUNOS
+# API PHP - App Carrossel
 
-1. COPIAR OS ARQUIVOS
+## Sobre o projeto
 
-Copie estes arquivos para:
+Esta pasta contém a parte do backend do App Carrossel.
 
+Os arquivos PHP são responsáveis por receber as requisições feitas pelo aplicativo, acessar o banco de dados MySQL e devolver os resultados para o aplicativo.
+
+Durante o desenvolvimento, foi utilizado o XAMPP para executar o Apache e o MySQL. Também foi utilizado o ngrok para criar um túnel e permitir a comunicação entre o aplicativo e a API local.
+
+## Funcionalidades
+
+- Consultar alunos
+- Cadastrar alunos
+- Editar alunos
+- Desativar alunos
+- Conectar a API ao banco de dados MySQL
+- Enviar e receber dados em JSON
+
+## Tecnologias utilizadas
+
+- PHP
+- MySQL
+- PDO
+- XAMPP
+- Apache
+- ngrok
+
+## Estrutura do projeto
+
+Os principais arquivos desta pasta são:
+
+- `config.php` → faz a conexão com o banco de dados.
+- `alunos.php` → consulta os alunos cadastrados.
+- `cadastrar_aluno.php` → realiza o cadastro de novos alunos.
+- `editar_aluno.php` → atualiza os dados dos alunos.
+- `desativar_aluno.php` → realiza a desativação do aluno.
+- `README.md` → explica o funcionamento da API.
+
+## Como executar
+
+Primeiro, coloque esta pasta dentro do diretório do XAMPP:
+
+```text
 C:\xampp\htdocs\carrossel
 
-Arquivos:
-- config.php
-- alunos.php
-- cadastrar_aluno.php
-- editar_aluno.php
-- excluir_aluno.php
+Depois, abra o XAMPP e deixe o Apache e o MySQL ligados.
 
+A API utiliza o banco de dados bd_escola_atualizado.
 
-2. BANCO DE DADOS
-
-Este PHP foi feito com base na estrutura real do banco:
-
-bd_escola_atualizado
-
-A tabela alunos possui:
-- id_aluno
-- id_endereco
-- id_dados
-- data_nascimento
-
-O cadastro também utiliza:
-- dados_pessoais
-- enderecos
-- telefones
-
-Não execute nenhum banco novo criado por este pacote.
-
-
-3. XAMPP
-
-Deixe:
-- Apache ligado
-- MySQL ligado
-
-
-4. TESTE NO NAVEGADOR
-
-Consulta:
+Para testar a consulta de alunos pelo navegador, acesse:
 
 http://localhost/carrossel/alunos.php
 
-Se estiver funcionando, deve aparecer um JSON com os alunos.
+Se estiver funcionando corretamente, a API deverá retornar os dados em formato JSON.
 
+Para conectar o aplicativo à API fora do computador, foi utilizado o ngrok como túnel. A URL gerada pelo ngrok é configurada no arquivo api.js do aplicativo.
 
-5. ENDPOINTS
+Comunicação do sistema
 
-GET:
-http://localhost/carrossel/alunos.php
+O funcionamento do projeto acontece da seguinte forma:
 
-POST:
-http://localhost/carrossel/cadastrar_aluno.php
-
-PUT ou POST:
-http://localhost/carrossel/editar_aluno.php
-
-DELETE ou POST:
-http://localhost/carrossel/excluir_aluno.php
-
-
-6. DADOS DO CADASTRO
-
-A tela atual do Snack possui:
-- nome
-- cpf
-- data de nascimento
-- email
-- telefone
-
-O banco, porém, também possui endereço relacionado ao aluno.
-
-Por isso, o cadastro PHP aceita:
-- id_bairro
-- rua
-- cep
-
-Quando esses campos não são enviados pelo Snack, o PHP usa temporariamente:
-- id_bairro = 1
-- rua = "Não informado"
-- cep = "00000000"
-
-Depois podemos acrescentar os campos de endereço na tela do Snack.
-
-
-7. IMPORTANTE SOBRE EXCLUSÃO
-
-O banco possui relacionamentos entre alunos e outras tabelas.
-
-Se o aluno possuir matrícula ou responsável vinculado, o PHP não deixa excluir para não quebrar os relacionamentos do banco.
-
-
-8. PRÓXIMO PASSO
-
-Depois de colocar os arquivos no XAMPP e testar alunos.php no navegador, podemos conectar o Snack a esses arquivos usando fetch().
+Aplicativo React Native
+          ↓
+        fetch()
+          ↓
+        ngrok
+          ↓
+      API PHP
+          ↓
+         PDO
+          ↓
+        MySQL
+Autor: Igor Augusto do Nascimento Rodrigues 3ºDS
