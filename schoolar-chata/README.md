@@ -1,11 +1,53 @@
-# Sample Snack app
+# Schoolar Carrossel 
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+## Sobre o projeto
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo cli](https://docs.expo.dev/get-started/installation/#expo-cli)).
+O Schoolar Carrossel é um aplicativo mobile desenvolvido para auxiliar no gerenciamento acadêmico de uma escola.
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+O projeto foi desenvolvido com React Native e Expo e possui integração com uma API em PHP, que faz a comunicação com o banco de dados MySQL.
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.dev/c/expo-dev-tools/61) or [Discord](https://chat.expo.dev/).
+Durante o desenvolvimento, foi utilizado o ngrok para criar um túnel entre o aplicativo e a API PHP que estava rodando localmente no XAMPP.
 
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+## Funcionalidades
+
+- Cadastro de alunos
+- Consulta de alunos
+- Edição de alunos
+- Desativação de alunos
+- Navegação entre as telas do sistema
+- Comunicação com a API PHP
+
+## Tecnologias utilizadas
+
+- React Native
+- Expo
+- JavaScript
+- React Navigation
+- PHP
+- MySQL
+- XAMPP
+- ngrok
+
+## Estrutura do projeto
+
+- `screens/` → telas do aplicativo
+- `services/` → comunicação com a API
+- `backend/` → arquivos PHP da API
+- `assets/` → imagens e recursos visuais
+- `App.js` → arquivo principal e configuração da navegação
+
+## Como executar
+
+Primeiro, instale as dependências:
+
+```bash
+npm install
+Depois, inicie o projeto:
+npx expo start
+Para utilizar a API, é necessário iniciar o Apache e o MySQL pelo XAMPP.
+
+Como o servidor PHP está rodando localmente, utilizamos o ngrok para criar um túnel de acesso à API.
+
+A URL gerada pelo ngrok deve ser colocada no arquivo services/api.js.
+
+Autor: Igor Augusto do Nascimento Rodrigues 3º DS
